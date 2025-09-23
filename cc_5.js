@@ -5,3 +5,4 @@ const employees= [
     {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 },
 ];
 // Step 3 Creating a Function 
+console.log(calculateBasePay)(20,25);
