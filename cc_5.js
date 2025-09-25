@@ -25,14 +25,11 @@ function calculateOvertimePay(rate, hours) {
 }
 console.log(calculateOvertimePay(20,50)) // records the array that is over 40 hours 
   // Step 5 Tax Deduction 
-  function calculateTaxes(grossPay) {
-  const taxRate = 0.15; // 15% tax rate
-  const taxAmount = grossPay * taxRate;
-  const netPay = grossPay - taxAmount;
-
-  console.log(`Gross Pay: $${grossPay.toFixed(2)}`);
-  console.log(`Tax Deducted (15%): $${taxAmount.toFixed(2)}`);
-  console.log(`Net Pay: $${netPay.toFixed(2)}`);
-
-  return netPay; // Optionally return the net pay
-}
+  const calculateTaxes = (grossPay) => {
+  return grossPay * 0.85;
+};
+const pay = 1000;
+const netPay = calculateTaxes(pay);
+console.log(`Gross Pay: $${pay}`);
+console.log(`Net Pay after 15% tax: $${netPay}`);
+// Step 6 
