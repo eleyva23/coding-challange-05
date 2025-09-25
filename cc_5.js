@@ -12,3 +12,4 @@ function calculateBasePay (rate, hours) {
     
     return basePay;
 }
+console.log(calculateBasePay(rate,hours))
