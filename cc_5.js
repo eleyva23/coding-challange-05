@@ -1,5 +1,5 @@
 // Step 2 Creating an Array of Employee Objects 
-const employees= [
+const employes= [
     {name:"Emma Leyva", hourlyRate: 20, hoursWorked: 50},
     {name: "Sophia Leyva", hourlyRate: 17, hoursWorked: 15},
     {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 }
@@ -32,4 +32,41 @@ const pay = 1000;
 const netPay = calculateTaxes(pay);
 console.log(`Gross Pay: $${pay}`);
 console.log(`Net Pay after 15% tax: $${netPay}`);
-// Step 6 
+// Step 6 Processing Payroll
+function processPayroll(employee) {
+    const { name, hourlyRate, hoursWorked } = employee;
+    const regularHours = Math.min(hoursWorked, 40);
+    const overtimeHours = Math.max(hoursWorked - 40, 0);
+
+    const basePay = regularHours * hourlyRate;
+    const overtimePay = overtimeHours * hourlyRate * 1.5;
+    const grossPay = basePay + overtimePay;
+
+    const taxRate = 0.2;
+    const netPay = grossPay * (1 - taxRate);
+
+    return {
+        name,
+        basePay,
+        overtimePay,
+        grossPay,
+        netPay
+    };
+}
+const employees= [
+    {name:"Emma Leyva", hourlyRate: 20, hoursWorked: 50},
+    {name: "Sophia Leyva", hourlyRate: 17, hoursWorked: 15},
+    {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 }
+];
+const payrollResults = employees.map(processPayroll);
+console.log(payrollResults);
+// Step 7 Loop through employee array and logging the payroll 
+const employeees= [
+    {name:"Emma Leyva", hourlyRate: 20, hoursWorked: 50},
+    {name: "Sophia Leyva", hourlyRate: 17, hoursWorked: 15},
+    {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 }
+];
+    
+employeees.forEach(employeees => {
+  console.log(`Payroll for ${employeees.name}:`, employeees.payroll);
+});
