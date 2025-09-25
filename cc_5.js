@@ -54,10 +54,12 @@ function processPayroll(employee) {
     };
 }
 const employees= [
-    {name:"Emma Leyva", hourlyRate: 20, hoursWorked: 50},
+  {name:"Emma Leyva", hourlyRate: 20, hoursWorked: 50},
     {name: "Sophia Leyva", hourlyRate: 17, hoursWorked: 15},
     {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 }
+
 ];
+  
 const payrollResults = employees.map(processPayroll);
 console.log(payrollResults);
 // Step 7 Loop through employee array and logging the payroll 
@@ -66,7 +68,17 @@ const employeees= [
     {name: "Sophia Leyva", hourlyRate: 17, hoursWorked: 15},
     {name: "Jae Diehl", hourlyRate: 14, hoursWorked: 10 }
 ];
-    
-employeees.forEach(employeees => {
-  console.log(`Payroll for ${employeees.name}:`, employeees.payroll);
-});
+for (const employee of employees) {
+    let regularHours = Math.min(employee.hoursWorked, 40);
+    let overtimeHours = Math.max(employee.hoursWorked - 40, 0);
+    let totalPay = (regularHours * employee.hourlyRate) + (overtimeHours * employee.hourlyRate * 1.5);
+
+    const payroll = {
+        name: employee.name,
+        hourlyRate: employee.hourlyRate,
+        hoursWorked: employee.hoursWorked,
+        totalPay: totalPay.toFixed(2)  // rounding to 2 decimal places
+    };
+
+    console.log(payroll);
+}
