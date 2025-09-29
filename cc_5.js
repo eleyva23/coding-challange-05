@@ -42,7 +42,7 @@ function processPayroll(employee) {
     const overtimePay = overtimeHours * hourlyRate * 1.5;
     const grossPay = basePay + overtimePay;
 
-    const taxRate = 0.2;
+    const taxRate = 0.15;
     const netPay = grossPay * (1 - taxRate);
 
     return {
